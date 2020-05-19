@@ -7,11 +7,13 @@ app.set('view engine', 'ejs');
 
 app.use(express.json());
 app.use(express.urlencoded({extended : false}));
+app.get(['/', '/:url'], (req,res,next)=>{
+  if(req.params.url != undefined) res.sendFile(path.join(__dirname, './public/', req.params.url))
+  // if(req.params.url != undefined) next();
+  else res.render('index');
+})
 app.use('/', express.static(path.join(__dirname, './public')));
 
-app.get('/', (req, res, next)=>{
-  res.render('index');
-})
 
 app.listen(3000, ()=>{
   console.log('server started...');
