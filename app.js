@@ -14,7 +14,39 @@ app.get(['/', '/:url'], (req,res,next)=>{
 })
 app.use('/', express.static(path.join(__dirname, './public')));
 
+app.get('/practice', (req,res,next)=>{
+  res.sendFile(path.join(__dirname, './public/practice.html'))
+})
+
+app.get('/api/practice1', (req,res,next)=>{
+  
+  const people = 
+  [
+    {
+    'name' : '최병찬',
+    'age' : 29,
+    'job' : 'web developer'
+    },
+    {
+      'name' : '유지예',
+      'age' : 28,
+      'job' : 'web developer'
+    },
+    {
+      'name' : '허정윤',
+      'age' : 27,
+      'job' : 'web developer'
+    },
+    {
+      'name' : '김진수',
+      'age' : 26,
+      'job' : 'web developer'
+    }
+  ];
+  const result = {'people' : people}
+  res.json(result);
+})
 
 app.listen(3000, ()=>{
-  console.log('server started...');
+  console.log('server started... http://localhost:3000/');
 })

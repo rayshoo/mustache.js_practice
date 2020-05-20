@@ -1,0 +1,4 @@
+{
+  "template1" : "<h1>how surpring this template!! My name is {{name}}!</h1>",
+  "template2" : "{{#people}}<tr><td>{{name}}</td><td>{{age}}</td><td>{{job}}</td></tr>{{/people}}"
+}
